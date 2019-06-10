@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@color/neavyblue"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/edt_enteryourfirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txt_firstname"
+        android:layout_below="@id/txt_firstname"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_toRightOf="@id/txt_firstname"
+        android:hint="@string/enter_your_firstname" />
+
+    <TextView
+        android:id="@+id/txt_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_enteryourfirstname"
+        android:text="@string/last_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/edt_enteryourlastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txt_lastname"
+        android:layout_below="@id/txt_lastname"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_toRightOf="@id/txt_lastname"
+        android:hint="@string/enter_your_lastname" />
+
+    <TextView
+        android:id="@+id/txt_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_enteryourlastname"
+        android:text="@string/gender"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <RadioGroup
+        android:id="@+id/rdg_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/edt_enteryourlastname"
+        android:layout_toRightOf="@id/txt_gender"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rdb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+            android:textSize="@dimen/text_size"/>
+
+        <RadioButton
+
+            android:id="@+id/rdb_male"
+            android:checked="true"
+            android:textSize="@dimen/text_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/male" />
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/txt_emailid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="163dp"
+        android:text="@string/email_id"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/edt_entertheemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txt_emailid"
+        android:layout_below="@id/txt_emailid"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_toRightOf="@id/txt_emailid"
+        android:hint="@string/enter_the_email" />
+
+    <TextView
+        android:id="@+id/txt_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_entertheemail"
+        android:text="@string/password"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/edt_enteryourpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txt_password"
+        android:layout_below="@id/edt_entertheemail"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_toRightOf="@id/txt_password"
+        android:hint="@string/enter_your_password" />
+
+    <TextView
+
+        android:id="@+id/txt_confirmpasswod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_enteryourpassword"
+        android:text="@string/confirm_password"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/edt_enteryourconfirmpasswod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txt_confirmpasswod"
+        android:layout_below="@id/txt_confirmpasswod"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_toRightOf="@id/txt_confirmpasswod"
+        android:hint="@string/enter_confirm_password" />
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_enteryourconfirmpasswod"
+        android:layout_centerInParent="true"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/text_size"/>
+
+    <TextView
+        android:id="@+id/txt_haveanaacount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_signup"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:text="@string/have_an_acount"
+        android:textSize="@dimen/text_size" />
+
+</RelativeLayout>

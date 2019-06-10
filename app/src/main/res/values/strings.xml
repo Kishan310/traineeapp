@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Trainapp</string>
+    <string name="email_id">Email id</string>
+    <string name="enter_data">Enter email id</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="butten">Login</string>
+    <string name="edit_text">Forget password</string>
+    <string name="app_name2">Android</string>
+    <string name="edit_text2">Creat account?SignUp</string>
+    <string name="first_name">first name</string>
+    <string name="enter_your_firstname">enter your firstname</string>
+    <string name="last_name">last name</string>
+    <string name="enter_your_lastname">enter your lastname</string>
+    <string name="gender">gender</string>
+    <string name="female">female</string>
+    <string name="male">male</string>
+    <string name="enter_the_email">enter the email</string>
+    <string name="enter_your_password">enter your password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="enter_confirm_password">enter confirm password</string>
+    <string name="sign_up">sign up</string>
+    <string name="have_an_acount">have an acount?SignIn</string>
+    <string name="sign_in">sign in</string>
+    <string name="reset_password">Reset Your Password</string>
+    <string name="new_password">new password</string>
+    <string name="back_to_signin">back to signin</string>
+    <string name="confirm_email_id">confirm email id</string>
+    <string name="next">next</string>
+    <string name="title_activity_dashboard">dashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_profile">Profile</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_logout">Log out</string>
+
+</resources>
