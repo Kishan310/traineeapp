@@ -22,6 +22,7 @@ public class Userlist extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
     }
+
     private void getDataFromSQLite() {
         // AsyncTask is used that SQLite operation not blocks the UI Thread.
         new AsyncTask<Void, Void, Void>() {
