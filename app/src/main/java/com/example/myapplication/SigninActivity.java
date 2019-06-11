@@ -25,6 +25,7 @@ public class SigninActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         emailEditText = findViewById(R.id.edt_email);
         passwordEditText = findViewById(R.id.edt_pass);
+        databaseHelper = new DatabaseHelper(this);
         Button btnsign = findViewById(R.id.btn_submit);
         btnsign.setOnClickListener(new View.OnClickListener() {
 
