@@ -30,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         firstnameEditText = findViewById(R.id.edt_profileFirstName);
         lastnameEditText = findViewById(R.id.edt_profileLastName);
         EmailidEditText = findViewById(R.id.edt_email);
+        EmailidEditText = findViewById(R.id.edt_email);
         Button btnupdate = findViewById(R.id.btn_Update);
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
                 final String firstname = firstnameEditText.getText().toString();
                 final String lastname = lastnameEditText.getText().toString();
                 final String email = EmailidEditText.getText().toString();
+//                final String password = PaEditText.getText().toString();
 
 
                 if (!isValidfristname(firstname)) {
