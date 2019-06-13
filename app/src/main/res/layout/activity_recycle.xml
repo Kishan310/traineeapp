@@ -22,14 +22,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/txt_fname" />
+                android:text="@string/enter_your_firstname" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/textViewFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="fname"
+                android:text="firstname"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -42,14 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/txt_lname" />
+                android:text="@string/enter_your_lastname" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/textViewLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Lname"
+                android:text="lastname"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -62,10 +62,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/text_gender" />
+                android:text="@string/gender" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/textViewGender"
+                android:id="@+id/txt_Gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/email" />
+                android:text="@string/email_id" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/textViewEmail"
