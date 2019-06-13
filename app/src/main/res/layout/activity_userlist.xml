@@ -35,5 +35,4 @@
         android:layout_below="@id/txt_emailid"
         android:background="@drawable/ic_delete_forever_black_24dp" />
 
-
 </RelativeLayout>
