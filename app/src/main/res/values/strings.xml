@@ -41,5 +41,11 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_logout">Log out</string>
+    <string name="text_accounts">All Account</string>
+    <string name="text_title">Title</string>
+    <string name="text_hello">Hello</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
 
 </resources>
