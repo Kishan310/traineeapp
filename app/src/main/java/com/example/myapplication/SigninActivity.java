@@ -10,12 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SigninActivity extends AppCompatActivity {
-    private EditText emailEditText;
+    private EditText EmailEditText;
     private EditText passwordEditText;
     private DatabaseHelper databaseHelper;
 
@@ -23,9 +24,11 @@ public class SigninActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-        emailEditText = findViewById(R.id.edt_email);
+        EmailEditText = findViewById(R.id.edt_email);
         passwordEditText = findViewById(R.id.edt_pass);
         databaseHelper = new DatabaseHelper(this);
+        EmailEditText.setText("aaa@aaa.aaa");
+        passwordEditText.setText("aaaaaaaa");
         Button btnsign = findViewById(R.id.btn_submit);
         btnsign.setOnClickListener(new View.OnClickListener() {
 
@@ -33,19 +36,19 @@ public class SigninActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 final String pass = passwordEditText.getText().toString();
-                final String email = emailEditText.getText().toString();
+                final String email = EmailEditText.getText().toString();
                 if (!isValidEmail(email)) {
-                    emailEditText.setError("Invalid Email");
+                    EmailEditText.setError("Invalid Email");
                 } else if (!isValidPassword(pass)) {
                     passwordEditText.setError("Invalid password");
                 } else {
-                    if (databaseHelper.checkUser(email, pass)) {
-                        isSavedUser(email, true);
-                        Intent intent = new Intent(v.getContext(), DashboardActivity.class);
-                        startActivityForResult(intent, 0);
-                    } else {
+                    if (databaseHelper.checkUser(email,pass)) {
+                        isUserLoggedIn(email, true);
                         Intent intent = new Intent(SigninActivity.this, DashboardActivity.class);
-                        startActivityForResult(intent, 0);
+                        startActivity(intent);
+                        Toast.makeText(SigninActivity.this, "signin sucessfully", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(SigninActivity.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -86,10 +89,10 @@ public class SigninActivity extends AppCompatActivity {
         return false;
     }
 
-    private void isSavedUser (String email, boolean value) {
+    private void isUserLoggedIn(String Email, boolean value) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("email", email);
+        editor.putString("Email", Email);
         editor.putBoolean("is_user_login", value);
         editor.apply();
     }

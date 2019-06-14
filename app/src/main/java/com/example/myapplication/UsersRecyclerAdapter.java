@@ -1,23 +1,11 @@
 package com.example.myapplication;
 
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.os.Bundle;
-//
-//public class UsersRecyclerAdapter extends AppCompatActivity {
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_recycle);
-//    }
-//}
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -38,7 +26,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // inflating recycler item view
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_recycle, parent, false);
+                .inflate(R.layout.user_list_row, parent, false);
 
         return new UserViewHolder(itemView);
     }
@@ -62,15 +50,13 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
      */
     public class UserViewHolder extends RecyclerView.ViewHolder {
 
-        public AppCompatTextView textViewfName;
-        public AppCompatTextView textViewlName;
-        public AppCompatTextView textViewEmail;
+        public TextView textViewfName,textViewlName,textViewEmail;
 
         public UserViewHolder(View view) {
             super(view);
-            textViewfName =  view.findViewById(R.id.txt_fname);
-            textViewlName = view.findViewById(R.id.txt_lname);
-            textViewEmail = view.findViewById(R.id.txt_email);
+            textViewfName =  view.findViewById(R.id.txt_usersfirstname);
+            textViewlName = view.findViewById(R.id.txt_userslastname);
+            textViewEmail = view.findViewById(R.id.txt_usersemailid);
         }
     }
 

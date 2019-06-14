@@ -55,7 +55,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean checkUser(String email, String password) {
         String[] columns = {
-                COLUMN_USER_FIRST_NAME
+                COLUMN_USER_EMAIL,
+                COLUMN_USER_PASSWORD
         };
         SQLiteDatabase db = this.getReadableDatabase();
         String selection = COLUMN_USER_EMAIL + " = ? " + " AND " + COLUMN_USER_PASSWORD + " = ? ";

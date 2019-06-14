@@ -103,20 +103,13 @@ public class DashboardActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
             clearsession();
-            Intent intent = new Intent(this, SigninActivity.class);
+            Intent intent = new Intent(this, SplashActivity.class);
             startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void toastEmail() {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        String email = sharedPreferences.getString("email", "");
-        Toast.makeText(this, email, Toast.LENGTH_SHORT).show();
     }
 
     private void clearsession() {

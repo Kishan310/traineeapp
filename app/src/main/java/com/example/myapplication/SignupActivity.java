@@ -28,15 +28,21 @@ public class SignupActivity extends AppCompatActivity {
         lastnameEdittext = findViewById(R.id.edt_enteryourlastname);
         emailEditText = findViewById(R.id.edt_entertheemail);
         passwordEditText = findViewById(R.id.edt_enteryourpassword);
-        confirmpasswordEditText = findViewById(R.id.edt_confirmpassword);
+        confirmpasswordEditText = findViewById(R.id.edt_enteryourconfirmpasswod);
         databaseHelper = new DatabaseHelper(this);
+        firstnameEdittext.setText("aaa");
+        lastnameEdittext.setText("aaa");
+        emailEditText.setText("aaa@aaa.aaa");
+        passwordEditText.setText("aaaaaaaa");
+        confirmpasswordEditText.setText("aaaaaaaa");
+
 
         TextView signin = findViewById(R.id.txt_haveanaacount);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), SigninActivity.class);
-                startActivityForResult(intent, 0);
+                startActivity(intent);
             }
 
         });
@@ -44,24 +50,24 @@ public class SignupActivity extends AppCompatActivity {
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final  String lastname = lastnameEdittext.getText().toString();
+                final String lastname = lastnameEdittext.getText().toString();
                 final String firstname = firstnameEdittext.getText().toString();
-                final  String emailid = emailEditText.getText().toString();
-                final  String password = passwordEditText.getText().toString();
-                final  String confirmpassword = confirmpasswordEditText.getText().toString();
-                if(!isValidFirstname(firstname)) {
+                final String emailid = emailEditText.getText().toString();
+                final String password = passwordEditText.getText().toString();
+                final String confirmpassword = confirmpasswordEditText.getText().toString();
+                if (!isValidFirstname(firstname)) {
                     firstnameEdittext.setError("please valid first name");
-                } else if(!isValidLastname(lastname)){
+                } else if (!isValidLastname(lastname)) {
                     lastnameEdittext.setError("please valid last name");
-                }else if(!isValidEmail(emailid)) {
+                } else if (!isValidEmail(emailid)) {
                     emailEditText.setError("please valid emailid");
-                }else if(!isValidPassword(password)) {
+                } else if (!isValidPassword(password)) {
                     passwordEditText.setError("please valid password");
-                }else if(!isValidConfirmpassword(password,confirmpassword)) {
+                } else if (!isValidConfirmpassword(password, confirmpassword)) {
                     confirmpasswordEditText.setError("please valid confirmpassword");
-                }else if(databaseHelper.checkUser(emailid)){
+                } else if (databaseHelper.checkUser(emailid)) {
                     Toast.makeText(SignupActivity.this, "Email are already exist", Toast.LENGTH_SHORT).show();
-                } else{
+                } else {
 
                     User user = new User();
                     user.setEmail(emailid);
@@ -71,10 +77,9 @@ public class SignupActivity extends AppCompatActivity {
                     user.setGender("");
 
                     boolean isUserCreated = databaseHelper.addUser(user);
-
                     if (isUserCreated) {
-                        Intent intent = new Intent(SignupActivity.this,SigninActivity.class);
-                        startActivityForResult(intent, 0);
+                        Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                     }
@@ -93,14 +98,16 @@ public class SignupActivity extends AppCompatActivity {
         });
 
     }
-    private boolean isValidFirstname(String firstname){
+
+    private boolean isValidFirstname(String firstname) {
         String FIRST_NAME_PATTERN = "[_A-Za-z]+([A-Za-z]{1,})";
 
         Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
         Matcher matcher = pattern.matcher(firstname);
         return matcher.matches();
     }
-    private boolean isValidLastname(String lastname){
+
+    private boolean isValidLastname(String lastname) {
         int maxLength;
         String LAST_NAME_PATTERN = "[_A-Za-z]+([A-Za-z]{1,})";
 
@@ -108,6 +115,7 @@ public class SignupActivity extends AppCompatActivity {
         Matcher matcher = pattern.matcher(lastname);
         return matcher.matches();
     }
+
     private boolean isValidEmail(String email) {
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -116,12 +124,14 @@ public class SignupActivity extends AppCompatActivity {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
     private boolean isValidPassword(String pass) {
         if (pass != null && pass.length() > 6) {
             return true;
         }
         return false;
     }
+
     private boolean isValidConfirmpassword(String password, String conpassword) {
         if (conpassword.equals(password)) {
             return true;

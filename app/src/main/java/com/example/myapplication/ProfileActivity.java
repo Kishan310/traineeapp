@@ -26,7 +26,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         databaseHelper = new DatabaseHelper(this);
-
         firstnameEditText = findViewById(R.id.edt_profileFirstName);
         lastnameEditText = findViewById(R.id.edt_profileLastName);
         EmailidEditText = findViewById(R.id.edt_email);
@@ -38,9 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
                 final String firstname = firstnameEditText.getText().toString();
                 final String lastname = lastnameEditText.getText().toString();
                 final String email = EmailidEditText.getText().toString();
-//                final String password = PaEditText.getText().toString();
-
-
                 if (!isValidfristname(firstname)) {
                     firstnameEditText.setError("Invalid fristanme");
                 } else if (!isValidlastname(lastname)) {
@@ -59,10 +55,9 @@ public class ProfileActivity extends AppCompatActivity {
                     if(isupdateuser) {
                         Intent intent = new Intent(ProfileActivity.this, SigninActivity.class);
                         startActivityForResult(intent, 0);
-                    }else{
-
                         Toast.makeText(ProfileActivity.this, "data updated", Toast.LENGTH_SHORT).show();
-
+                    }else{
+                        Toast.makeText(ProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
