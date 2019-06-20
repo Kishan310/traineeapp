@@ -193,4 +193,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // return user list
         return userList;
     }
+
+    public void deleteUser(String user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // delete user record by id
+        db.delete(TABLE_USER, COLUMN_USER_EMAIL + " = ?",
+                new String[]{user});
+        db.close();
+    }
 }

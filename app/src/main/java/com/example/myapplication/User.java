@@ -1,7 +1,11 @@
 package com.example.myapplication;
 
 public class User {
-    private String email,password, firstname,lastname,gender;
+    private String email,password, firstname,lastname,gender,delete;
+
+    public void setDelete(String delete) { this.delete = delete; }
+
+    public String getDelete() { return delete;}
 
     public void setGender(String gender) {
         this.gender = gender;
@@ -27,9 +31,7 @@ public class User {
         return lastname;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email; }
 
     public void setEmail(String email) {
         this.email = email;

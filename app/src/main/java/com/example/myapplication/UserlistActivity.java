@@ -28,7 +28,7 @@ public class UserlistActivity extends AppCompatActivity {
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
         listUsers = new ArrayList<>();
 
-        UsersRecyclerAdapter usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers);
+        UsersRecyclerAdapter usersRecyclerAdapter = new UsersRecyclerAdapter(listUsers,databaseHelper);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewUsers.setLayoutManager(mLayoutManager);
         recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());

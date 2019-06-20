@@ -37,7 +37,7 @@
     <string name="btn_update">update</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_user">Users</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_logout">Log out</string>

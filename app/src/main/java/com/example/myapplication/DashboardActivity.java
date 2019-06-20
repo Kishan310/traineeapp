@@ -95,7 +95,9 @@ public class DashboardActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_user) {
+            Intent intent = new Intent(this,UserlistActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_tools) {
 
