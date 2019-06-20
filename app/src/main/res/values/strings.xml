@@ -6,7 +6,7 @@
     <string name="enter_password">Enter password</string>
     <string name="butten">Login</string>
     <string name="edit_text">Forget password</string>
-    <string name="app_name2">Android</string>
+    <!--<string name="app_name2">Android</string>-->
     <string name="edit_text2">Creat account?SignUp</string>
     <string name="first_name">first name</string>
     <string name="enter_your_firstname">enter your firstname</string>
@@ -44,5 +44,6 @@
     <string name="text_accounts">All Account</string>
     <string name="text_title">Title</string>
     <string name="text_hello">Hello</string>
-
+    <string name="text_name">Name</string>
+    <string name="text_phone">Phone</string>
 </resources>
