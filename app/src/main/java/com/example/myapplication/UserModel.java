@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-public class User {
+public class UserModel {
     private String email,password, firstname,lastname,gender,delete;
 
     public void setDelete(String delete) { this.delete = delete; }

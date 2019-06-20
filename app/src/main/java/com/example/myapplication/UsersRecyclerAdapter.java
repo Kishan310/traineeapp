@@ -1,11 +1,9 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +16,11 @@ import java.util.List;
 
 public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdapter.UserViewHolder> {
 
-    private List<User> listUsers;
+    private List<UserModel> listUsers;
     private DatabaseHelper databaseHelper;
 
 
-    public UsersRecyclerAdapter(List<User> listUsers,DatabaseHelper databaseHelper) {
+    public UsersRecyclerAdapter(List<UserModel> listUsers, DatabaseHelper databaseHelper) {
         this.listUsers = listUsers;
         this.databaseHelper = databaseHelper;
     }

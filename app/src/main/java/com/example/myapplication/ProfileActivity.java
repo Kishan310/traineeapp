@@ -44,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
                 } else if (!isValidEmail(email)) {
                     EmailidEditText.setError("Invalid Email");
                 } else {
-                    User user = new User();
+                    UserModel user = new UserModel();
                     user.setLastname(lastname);
                     user.setFirstname(firstname);
                     user.setEmail(email);

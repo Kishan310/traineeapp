@@ -106,7 +106,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public boolean updateuser (User user){
+    public boolean updateuser (UserModel user){
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
@@ -125,7 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
 
     }
-    public boolean addUser(User user) {
+    public boolean addUser(UserModel user) {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
 
@@ -145,7 +145,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public List<User> getAllUser() {
+    public List<UserModel> getAllUser() {
         // array of columns to fetch
         String[] columns = {
                 COLUMN_USER_FIRST_NAME,
@@ -156,7 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // sorting orders
         String sortOrder =
                 COLUMN_USER_EMAIL + " ASC";
-        List<User> userList = new ArrayList<User>();
+        List<UserModel> userList = new ArrayList<UserModel>();
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -178,7 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Traversing through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                User user = new User();
+                UserModel user = new UserModel();
                 user.setFirstname(cursor.getString(cursor.getColumnIndex(COLUMN_USER_FIRST_NAME)));
                 user.setLastname(cursor.getString(cursor.getColumnIndex(COLUMN_USER_LAST_NAME)));
                 user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)));

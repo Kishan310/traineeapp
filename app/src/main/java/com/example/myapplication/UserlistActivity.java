@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UserlistActivity extends AppCompatActivity {
 
-    private List<User> listUsers;
+    private List<UserModel> listUsers;
     private DatabaseHelper databaseHelper;
     private RecyclerView recyclerViewUsers;
 

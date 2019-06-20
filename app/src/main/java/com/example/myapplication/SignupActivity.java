@@ -69,7 +69,7 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(SignupActivity.this, "Email are already exist", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    User user = new User();
+                    UserModel user = new UserModel();
                     user.setEmail(emailid);
                     user.setPassword(password);
                     user.setFirstname(firstname);
