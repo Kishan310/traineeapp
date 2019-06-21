@@ -101,6 +101,11 @@ public class DashboardActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_tools) {
 
+        } else if (id == R.id.nav_contact) {
+
+            Intent intent = new Intent(this,AllContactsActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_logout) {
