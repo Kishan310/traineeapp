@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Trainapp</string>
+    <string name="app_name">Traineepp</string>
     <string name="email_id">Email id</string>
     <string name="enter_data">Enter email id</string>
     <string name="password">Password</string>
@@ -39,6 +39,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_user">Users</string>
     <string name="menu_tools">Tools</string>
+    <string name="menu_service">Music Service</string>
     <string name="menu_share">Share</string>
     <string name="menu_logout">Log out</string>
     <string name="menu_contact">Contacts</string>

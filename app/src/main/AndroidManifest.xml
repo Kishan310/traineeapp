@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".singleContectView"></activity>
-        <activity android:name=".AllContactsActivity" />
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +32,9 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".UserlistActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".ServiceActivity" />
+        <activity android:name=".singleContectView" />
+        <activity android:name=".AllContactsActivity" />
     </application>
 
 </manifest>
