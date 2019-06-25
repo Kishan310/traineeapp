@@ -1,31 +1,41 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ServiceActivity extends Activity {
-    String msg = "Android : ";
+public class ServiceActivity extends AppCompatActivity implements View.OnClickListener {
+
+    //button objects
+    private Button buttonStart;
+    private Button buttonStop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
-        Log.d(msg, "The onCreate() event");
+
+        //getting buttons from xml
+        buttonStart = (Button) findViewById(R.id.buttonStart);
+        buttonStop = (Button) findViewById(R.id.buttonStop);
+
+        //attaching onclicklistener to buttons
+        buttonStart.setOnClickListener(this);
+        buttonStop.setOnClickListener(this);
     }
 
-    public void startService(View view) {
-        startService(new Intent(getBaseContext(), MyService.class));
+    @Override
+    public void onClick(View view) {
+        if (view == buttonStart) {
+            //start the service here
+        } else if (view == buttonStop) {
+            //stop the service here
+        }
     }
-
-    public void stopService(View view) {
-        stopService(new Intent(getBaseContext(), MyService.class));
-    }
-
 }
