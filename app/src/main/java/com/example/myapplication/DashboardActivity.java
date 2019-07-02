@@ -90,20 +90,28 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
+
             Intent intent =  new Intent(this, ProfileActivity.class);
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_service) {
+
             Intent intent = new Intent(this,ServiceActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_user) {
+
             Intent intent = new Intent(this,UserlistActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_tools) {
+
+        }else if (id == R.id.nav_location){
+
+            Intent intent = new Intent(this,MapsActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_contact) {
 
@@ -113,6 +121,7 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_logout) {
+
             clearsession();
             Intent intent = new Intent(this, SplashActivity.class);
             startActivity(intent);
