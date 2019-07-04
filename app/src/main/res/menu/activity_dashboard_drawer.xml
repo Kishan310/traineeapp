@@ -24,6 +24,10 @@
             android:id="@+id/nav_service"
             android:icon="@drawable/ic_music_note_black_24dp"
             android:title="@string/menu_service" />
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="@string/menu_location" />
     </group>
 
     <item android:title="Communicate">
