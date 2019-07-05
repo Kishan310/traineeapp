@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -35,7 +36,7 @@ import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity{
 
     private EditText firstnameEdittext;
     private EditText lastnameEdittext;
@@ -62,7 +63,7 @@ public class SignupActivity extends AppCompatActivity {
         confirmpasswordEditText.setText("aaaaaaaa");
 
 
-        TextView signin = findViewById(R.id.txt_haveanaacount);
+        TextView signin = findViewById(R.id.txt_haveanacount);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +104,7 @@ public class SignupActivity extends AppCompatActivity {
                     user.setGender("");
 
                     boolean isUserCreated = databaseHelper.addUser(user);
+
                     if (isUserCreated) {
                         Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
                         startActivity(intent);
@@ -114,7 +116,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-        TextView txtsignin = findViewById(R.id.txt_haveanaacount);
+        TextView txtsignin = findViewById(R.id.txt_haveanacount);
         txtsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -168,18 +170,18 @@ public class SignupActivity extends AppCompatActivity {
     private void init() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 //        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow);
 
         databaseHelper = new DatabaseHelper(this);
+
         firstnameEdittext = findViewById(R.id.edt_enteryourfirstname);
         lastnameEdittext = findViewById(R.id.edt_enteryourlastname);
         emailEditText = findViewById(R.id.edt_entertheemail);
         passwordEditText = findViewById(R.id.edt_enteryourpassword);
         confirmpasswordEditText = findViewById(R.id.edt_enteryourconfirmpasswod);
         databaseHelper = new DatabaseHelper(this);
-
         ivPhoto = findViewById(R.id.iv_photo);
     }
 
