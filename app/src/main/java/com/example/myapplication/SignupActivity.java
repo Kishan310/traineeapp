@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -36,7 +37,7 @@ import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SignupActivity extends AppCompatActivity{
+public class SignupActivity extends AppCompatActivity {
 
     private EditText firstnameEdittext;
     private EditText lastnameEdittext;
