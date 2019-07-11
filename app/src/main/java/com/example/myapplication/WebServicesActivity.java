@@ -8,12 +8,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 public class WebServicesActivity extends AppCompatActivity {
+    private RequestQueue mRequestQueue;
+    private StringRequest mStringRequest;
+    private String url =  "http://www.mocky.io/v2/597c41390f0000d002f4dbd1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class WebServicesActivity extends AppCompatActivity {
         });
     }
 
-    private void sendAndRequestResponse(String url) {
+    private void sendAndRequestResponse() {
 
         mRequestQueue = Volley.newRequestQueue(this);
         mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
