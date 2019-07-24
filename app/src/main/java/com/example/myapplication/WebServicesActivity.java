@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -17,21 +19,24 @@ import com.android.volley.toolbox.Volley;
 
 public class WebServicesActivity extends AppCompatActivity implements View.OnClickListener{
 //    private String url = "https://reqres.in/api/users?page=2";
+    private Button btnget,btnpost,btnput,btndelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_services);
 
-        findViewById(R.id.btn_get).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getResponse("https://reqres.in/api/users?page=2");
-                postResponse("https://reqres.in/api/users");
-                putResponse("https://reqres.in/api/users/2");
-                deleteResponse("https://reqres.in/api/users/2");
-            }
-        });
+       init();
+
+    }
+    private void init(){
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+       findViewById(R.id.btn_get).setOnClickListener(this);
+       findViewById(R.id.btn_post).setOnClickListener(this);
+       findViewById(R.id.btn_put).setOnClickListener(this);
+       findViewById(R.id.btn_delete).setOnClickListener(this);
 
     }
 
@@ -62,7 +67,7 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         RequestQueue mRequestQueue;
         StringRequest mStringRequest;
         mRequestQueue = Volley.newRequestQueue(this);
-        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        mStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -84,7 +89,7 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         RequestQueue mRequestQueue;
         StringRequest mStringRequest;
         mRequestQueue = Volley.newRequestQueue(this);
-        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        mStringRequest = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -106,7 +111,7 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         RequestQueue mRequestQueue;
         StringRequest mStringRequest;
         mRequestQueue = Volley.newRequestQueue(this);
-        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        mStringRequest = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -126,6 +131,27 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_get:
+                getResponse("https://reqres.in/api/users?page=2");
+                break;
+            case R.id.btn_post:
+                postResponse("https://reqres.in/api/users");
+                break;
+            case R.id.btn_put:
+                putResponse("https://reqres.in/api/users/2");
+            case R.id.btn_delete:
+                deleteResponse("https://reqres.in/api/users/2");
+        }
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
