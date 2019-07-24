@@ -120,6 +120,11 @@ public class DashboardActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
+        } else if (id == R.id.nav_websevices){
+
+            Intent intent = new Intent(this,WebServicesActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_logout) {
 
             clearsession();

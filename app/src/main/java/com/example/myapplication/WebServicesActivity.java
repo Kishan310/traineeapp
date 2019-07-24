@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -14,10 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class WebServicesActivity extends AppCompatActivity {
-    private RequestQueue mRequestQueue;
-    private StringRequest mStringRequest;
-    private String url =  "http://www.mocky.io/v2/597c41390f0000d002f4dbd1";
+public class WebServicesActivity extends AppCompatActivity implements View.OnClickListener{
+//    private String url = "https://reqres.in/api/users?page=2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,28 +26,106 @@ public class WebServicesActivity extends AppCompatActivity {
         findViewById(R.id.btn_get).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendAndRequestResponse();
+                getResponse("https://reqres.in/api/users?page=2");
+                postResponse("https://reqres.in/api/users");
+                putResponse("https://reqres.in/api/users/2");
+                deleteResponse("https://reqres.in/api/users/2");
             }
         });
+
     }
 
-    private void sendAndRequestResponse() {
+    private void getResponse(String url) {
 
+        RequestQueue mRequestQueue;
+        StringRequest mStringRequest;
         mRequestQueue = Volley.newRequestQueue(this);
         mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
-                Toast.makeText(getApplicationContext(), "Response :" + response.toString(), Toast.LENGTH_LONG).show();//display the response on screen
+                Log.e("onResponse: ",response );
+                Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Log.i("Error :", error.toString());
+                Log.e("Error :", error.toString());
             }
         });
         mRequestQueue.add(mStringRequest);
+    }
+
+    private void postResponse(String url){
+        RequestQueue mRequestQueue;
+        StringRequest mStringRequest;
+        mRequestQueue = Volley.newRequestQueue(this);
+        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Log.e("onResponse: ",response );
+                Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.e("Error :", error.toString());
+            }
+        });
+        mRequestQueue.add(mStringRequest);
+    }
+
+    private void putResponse(String url){
+        RequestQueue mRequestQueue;
+        StringRequest mStringRequest;
+        mRequestQueue = Volley.newRequestQueue(this);
+        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Log.e("onResponse: ",response );
+                Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.e("Error :", error.toString());
+            }
+        });
+        mRequestQueue.add(mStringRequest);
+    }
+
+    private void deleteResponse(String url){
+        RequestQueue mRequestQueue;
+        StringRequest mStringRequest;
+        mRequestQueue = Volley.newRequestQueue(this);
+        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Log.e("onResponse: ",response );
+                Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.e("Error :", error.toString());
+            }
+        });
+        mRequestQueue.add(mStringRequest);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

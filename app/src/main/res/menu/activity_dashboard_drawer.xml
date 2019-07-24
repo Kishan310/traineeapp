@@ -26,7 +26,7 @@
             android:title="@string/menu_service" />
         <item
             android:id="@+id/nav_location"
-            android:icon="@drawable/ic_place_black_24dp"
+            android:icon="@drawable/ic_location_on_black_24dp"
             android:title="@string/menu_location" />
     </group>
 
@@ -44,6 +44,11 @@
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_logout" />
+
+            <item
+                android:id="@+id/nav_websevices"
+                android:icon="@drawable/ic_web_black_24dp"
+                android:title="@string/menu_webservices" />
         </menu>
     </item>
 
