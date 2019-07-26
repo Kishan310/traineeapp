@@ -2,27 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".WebServicesActivity">
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="name"/>
+
+    <EditText
+        android:id="@+id/edt_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="job"
+        android:layout_below="@+id/edt_name"/>
 
     <Button
         android:id="@+id/btn_get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GET"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="150dp" />
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="250dp"
+        tools:ignore="MissingConstraints"/>
 
     <Button
         android:id="@+id/btn_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="POST"
+        android:layout_marginLeft="150dp"
         android:layout_below="@+id/btn_get"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="150dp"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -31,8 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_post"
         android:text="PUT"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="150dp"
+        android:layout_marginLeft="150dp"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -40,8 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DELETE"
+        android:layout_marginLeft="150dp"
         android:layout_below="@+id/btn_put"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="150dp"
         tools:ignore="MissingConstraints" />
 </RelativeLayout>
