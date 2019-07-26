@@ -52,7 +52,7 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_get:
-                getResponse("https://reqres.in/api/users?page=2");
+                getResponse("https://reqres.in/api/unknown/2");
                 break;
             case R.id.btn_post:
                 postService("https://reqres.in/api/users");
