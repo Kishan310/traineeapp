@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -24,7 +25,7 @@ import java.util.Map;
 
 public class WebServicesActivity extends AppCompatActivity implements View.OnClickListener {
     //    private String url = "https://reqres.in/api/users?page=2";
-    EditText edtName, edtJob;
+    EditText edtName, edtJob,txtresponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,8 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        edtJob=findViewById(R.id.edt_job);
-        edtName=findViewById(R.id.edt_name);
+        edtJob = findViewById(R.id.edt_job);
+        edtName = findViewById(R.id.edt_name);
         findViewById(R.id.btn_get).setOnClickListener(this);
         findViewById(R.id.btn_post).setOnClickListener(this);
         findViewById(R.id.btn_put).setOnClickListener(this);
@@ -72,7 +73,7 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
 
             @Override
             public void onResponse(String response) {
-
+                parseGetResponse(response);
                 Log.e("onResponse: ", response);
                 Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
 
@@ -86,6 +87,29 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
             }
         });
         mRequestQueue.add(mStringRequest);
+    }
+
+    private void parseGetResponse(String response) {
+        try {
+            JSONObject responseJSONObject = new JSONObject(response);
+            int page = responseJSONObject.getInt("page");
+            String perpage = responseJSONObject.getString("per_page");
+            String total = responseJSONObject.getString("total");
+            String totalPage = responseJSONObject.getString("total_pages");
+            JSONArray dataJSONArray = responseJSONObject.getJSONArray("data");
+            for (int i = 0; i < dataJSONArray.length(); i++) {
+                JSONObject dataJSONObject = dataJSONArray.getJSONObject(i);
+                int id = dataJSONObject.getInt("id");
+                String email = dataJSONObject.getString("email");
+                String firstname = dataJSONObject.getString("first_name");
+                String lastname = dataJSONObject.getString("last_name");
+                String avatar = dataJSONObject.getString("avatar");
+            }
+
+        } catch (Exception e) {
+            Log.e("parseGetResponse", e + "");
+        }
+
     }
 
     private void postService(String url) {
@@ -121,9 +145,15 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
 
     private void parsePostResponse(String response) {
         try {
-            JSONObject responseJsonObject = new JSONObject(response);
-            String createdAt = responseJsonObject.getString("createdAt");
-            edtName.setText(createdAt);
+            JSONObject responseJSONObject = new JSONObject(response);
+            int id = responseJSONObject.getInt("id");
+            String name = responseJSONObject.getString("name");
+            String job = responseJSONObject.getString("job");
+            String createdAt = responseJSONObject.getString("createdAt");
+            txtresponse.setText(createdAt);
+            txtresponse.setText(job);
+            txtresponse.setText(name);
+            txtresponse.setText(id);
         } catch (Exception e) {
             Log.e("parsePOSTResponse", e.toString());
         }
@@ -135,17 +165,16 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
                 parsePutResponse(response);
             }
         },
                 new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(WebServicesActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }) {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(WebServicesActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
@@ -162,8 +191,12 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
     private void parsePutResponse(String response) {
         try {
             JSONObject responseJsonObject = new JSONObject(response);
-            String createdAt = responseJsonObject.getString("createdAt");
-            edtName.setText(createdAt);
+            String updateAt = responseJsonObject.getString("updateAt");
+            String name = responseJsonObject.getString("name");
+            int id = responseJsonObject.getInt("id");
+            txtresponse.setText(name);
+            txtresponse.setText(id);
+            txtresponse.setText(updateAt);
         } catch (Exception e) {
             Log.e("parsePUTResponse", e.toString());
         }
