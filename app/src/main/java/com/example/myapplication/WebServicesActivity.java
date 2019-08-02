@@ -209,8 +209,8 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         mStringRequest = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                Log.e("onResponse: ", response);
+                parseDeleteResponse(response);
+//                Log.e("onResponse: ", response);
                 Toast.makeText(getApplicationContext(), "Response :" + response, Toast.LENGTH_LONG).show();//display the response on screen
 
             }
@@ -222,6 +222,23 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
             }
         });
         mRequestQueue.add(mStringRequest);
+    }
+
+    private void parseDeleteResponse(String response) {
+        try {
+            JSONObject responseJSONObject = new JSONObject(response);
+            JSONArray batterssJSONArray = responseJSONObject.getJSONArray("batterss");
+            JSONArray battersJSONArray = responseJSONObject.getJSONArray("batters");
+            JSONArray batterJSONArray = responseJSONObject.getJSONArray("batter");
+            for (int i = 0;i<batterJSONArray.length();i++){
+                JSONObject response1JSONObject = batterssJSONArray.getJSONObject(i);
+                String type = response1JSONObject.getString("type");
+                txtresponse.setText(response);
+            }
+
+        } catch (Exception e){
+            Log.e("parseDELETERespone", e.toString());
+        }
     }
 
 
