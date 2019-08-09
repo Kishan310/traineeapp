@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class WebServicesActivity extends AppCompatActivity implements View.OnClickListener {
     //    private String url = "https://reqres.in/api/users?page=2";
-    EditText edtName, edtJob,txtresponse;
+    EditText edtName, edtJob, txtresponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -228,15 +228,20 @@ public class WebServicesActivity extends AppCompatActivity implements View.OnCli
         try {
             JSONObject responseJSONObject = new JSONObject(response);
             JSONArray batterssJSONArray = responseJSONObject.getJSONArray("batterss");
-            JSONArray battersJSONArray = responseJSONObject.getJSONArray("batters");
-            JSONArray batterJSONArray = responseJSONObject.getJSONArray("batter");
-            for (int i = 0;i<batterJSONArray.length();i++){
+            for (int i = 0; i < batterssJSONArray.length(); i++) {
                 JSONObject response1JSONObject = batterssJSONArray.getJSONObject(i);
-                String type = response1JSONObject.getString("type");
-                txtresponse.setText(response);
+                JSONArray battersJSONArray = response1JSONObject.getJSONArray("batters");
+                for (int j = 0; j < battersJSONArray.length(); j++) {
+                    JSONObject response1lJSONObject = battersJSONArray.getJSONObject(i);
+                    JSONArray batterJSONArray = responseJSONObject.getJSONArray("batter");
+                    for (int k = 0; k < batterJSONArray.length(); k++) {
+                        JSONObject response1llJSONObject = batterJSONArray.getJSONObject(i);
+                        String type = response1JSONObject.getString("type");
+                        txtresponse.setText(response);
+                    }
+                }
             }
-
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.e("parseDELETERespone", e.toString());
         }
     }
