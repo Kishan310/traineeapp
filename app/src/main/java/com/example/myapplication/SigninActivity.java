@@ -1,16 +1,23 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.content.Intent;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,7 +41,7 @@ public class SigninActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+//                displayToken();
                 final String pass = passwordEditText.getText().toString();
                 final String email = EmailEditText.getText().toString();
                 if (!isValidEmail(email)) {
@@ -42,12 +49,12 @@ public class SigninActivity extends AppCompatActivity {
                 } else if (!isValidPassword(pass)) {
                     passwordEditText.setError("Invalid password");
                 } else {
-                    if (databaseHelper.checkUser(email,pass)) {
+                    if (databaseHelper.checkUser(email, pass)) {
                         isUserLoggedIn(email, true);
                         Intent intent = new Intent(SigninActivity.this, DashboardActivity.class);
                         startActivity(intent);
                         Toast.makeText(SigninActivity.this, "signin sucessfully", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Toast.makeText(SigninActivity.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -97,4 +104,20 @@ public class SigninActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    public void displayToken() {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("getInstanceId failed", task.getException().toString());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+                        Log.e("Token-------", token);
+                    }
+                });
+    }
 }
